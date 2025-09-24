@@ -1,32 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Student {
+class Student
+{
 public:
-    string nm;
+    string name;
     int cls;
     char s;
     int id;
 };
 
-int main() {
-    int N;
-    cin >> N;
-    vector<Student> students(N);
+int main()
+{
+    int n;
+    cin >> n;
+    Student a[n];
 
-    for (int i = 0; i < N; i++) {
-        cin >> students[i].nm >> students[i].cls >> students[i].s >> students[i].id;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i].name >> a[i].cls >> a[i].s >> a[i].id;
     }
 
-    int left = 0, right = N - 1;
-    while (left < right) {
-        swap(students[left].s, students[right].s);
-        left++;
-        right--;
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            char temp = a[i].s;
+            a[i].s = a[j].s;
+            a[j].s = temp;
+        }
     }
-
-    for (int i = 0; i < N; i++) {
-        cout << students[i].nm << " " << students[i].cls << " " << students[i].s << " " << students[i].id << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i].name << " " << a[i].cls << " " << a[i].s << " " << a[i].id << endl;
     }
 
     return 0;

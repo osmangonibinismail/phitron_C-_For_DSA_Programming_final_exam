@@ -1,22 +1,23 @@
-//problem 01
-
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main() {
-    int T;
-    cin >> T;
-    while (T--) {
-        string S, X;
-        cin >> S >> X;
-        
-        size_t position = S.find(X);
-        while (position != string::npos) {
-            S.replace(position, X.size(), "#");
-            position = S.find(X);
+    int t;
+    cin >> t;
+
+    while (t--) {
+        string s, x;
+        cin >> s >> x;
+
+        int position = (int)s.find(x);
+        while (position != -1) {
+            s.replace(position, x.size(), "#");
+            position = (int)s.find(x, position + 1);
         }
-        
-        cout << S << endl;
-    }
+
+        cout << s << endl;
+    };
+
     return 0;
 }
+
